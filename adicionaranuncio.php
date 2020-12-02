@@ -25,7 +25,7 @@ require("controllers/autentication.php");
           <textarea class="caixadescricao" name="descricao" placeholder="Digite a descrição da vaga"></textarea>
           <h4>Contatos:</h4>
           <p>Telefone:</p>
-          <input class="caixatelefone" type="tel" name="telefone" placeholder="Digite o telefone para contato"/>
+          <input class="caixatelefone" type="tel" name="telefone" data-masck="(00) 00000-0000" data-masck -selectonfocus="true" placeholder="Digite o telefone para contato"/>
           <p>E-mail:</p>
           <input class="caixaemail" type="email" name="email" placeholder="Digite o e-mail para contato"/>
           <p>Site:</p>
@@ -39,7 +39,7 @@ require("controllers/autentication.php");
           </div>
           <div class="botoes">
           <a class="botaocancelar" type="button" href="perfil.php">Cancelar</button>
-          <input class="botaopostar" type="submit" value="Salvar pesquisa" />
+          <input class="botaopostar" type="submit" value="Salvar anúncio" />
           </div>
         </form>
       </div>

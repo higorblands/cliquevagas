@@ -1,7 +1,8 @@
 <?php 
 require("controllers/autentication.php");
+require("model/persistency/db.php");
 
-$sql = "SELECT * FROM anuncio WHERE codigo=" . $_GET['anuncio'];
+$sql = "SELECT * FROM anuncios WHERE codigo= " . $_GET['anuncio'];
 $resultado = banco($sql);
 $resultado = pg_fetch_assoc($resultado);
 $precisase = $resultado['precisase'];
@@ -36,7 +37,7 @@ $endereco = $resultado['endereco'];
           <input class="caixadescricao" type="text" method="POST" value="<?php $descricao ?>" />
           <h4>Contatos:</h4>
           <p>Telefone:</p>
-          <input class="caixatelefone" type="tel" method="POST" value="<?php $telefone ?>" />
+          <input class="caixatelefone" type="tel" data-masck="(00) 00000-0000" data-masck -selectonfocus="true"  value="<?php $telefone ?>" />
           <p>E-mail:</p>
           <input class="caixaemail" type="email" method="POST" value="<?php $email ?>" />
           <p>Site:</p>
@@ -50,7 +51,7 @@ $endereco = $resultado['endereco'];
           </div>
           <div class="botoes">
           <a class="botaocancelar" type="button" href="perfil.php">Cancelar</button>
-          <input class="botaopostar" type="submit" value="Salvar pesquisa" />
+          <input class="botaopostar" type="submit" value="Salvar anúncio" />
           </div>
         </form>
       </div>
