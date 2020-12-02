@@ -43,7 +43,7 @@ $resultado = banco($sql);
 
           <div class="card  <?= ($inativo) ? 'inativo' : '' ?>">
             <div class="col c1">
-              <a href="#"><i class="material-icons">edit</i></a>
+              <a href="alteraranuncio.php"><i class="material-icons">edit</i></a>
             </div>
             <div class="col c2">
               <p><?= $row['precisase'] ?></p>
