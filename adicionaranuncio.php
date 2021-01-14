@@ -17,13 +17,13 @@ require("controllers/autentication.php");
     <div class="container">
       <div class="titulo bg1">
       <a href="index.php"> <img   src="images/logo.png" /></a>
-      <a class="limpartitulo" href="index.php"> Click Vagas Caruaru</a>
+      <a class="limpartitulo" href="index.php"> Clique Vagas Caruaru</a>
       </div>
       <div class="conteudo">
         <h3>Criar anúncio:</h3>
         <form method="POST" action="model/salvar_anuncio.php">
           <p>Precisa-se:</p>
-          <input class="caixaprecisase" name="precisase" type="text"  placeholder="Digite o Título da vaga"/>
+          <input class="caixaprecisase" name="precisase" type="text"  placeholder="Digite o Título da vaga" required/>
           <p>Descrição da vaga: <p id="max">(Max: 400 caracteres)</p></p>
           <textarea class="caixadescricao" name="descricao" maxlength="400" style="height:auto!important" rows="10" placeholder="Digite a descrição da vaga"></textarea>
           <h4>Contatos:</h4>

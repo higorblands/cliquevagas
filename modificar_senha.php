@@ -1,18 +1,23 @@
+<?php
+  if (!isset($_GET['chave']) || $_GET['chave'] == "") {
+      header("Location: /cliquevagas/erro_hash.html");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clique Vagas Caruaru</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="style/principal.css" />
     <link rel="stylesheet" href="style/empresa.css" />
-    <link rel="stylesheet" href="style/recuperar.css" />
   </head>
   <body class="bg2">
     <div class="container">
       <div class="titulo bg1">
-        <a href="index.php"> <img src="images/logo.png" /></a>
-        <a class="limpartitulo" href="index.php"> Clique Vagas Caruaru</a>
+        <a class="limpartitulo" href="index.php"> <img src="images/logo.png" /> Clique Vagas Caruaru</a>
       </div>
       <div class="conteudo">
       <div class="tema">
@@ -21,15 +26,12 @@
       </div>
 
       <div class="formulario">
-      <form method="POST" action="controllers/recuperar_email.php">
-          <p>E-mail:</p>
-          <input class="caixaemail" type="email" name="email" placeholder="Digite o e-mail da sua empresa" />
-          <button class="botaoconfirma" type="submit" >Recuperar senha</button>
+      <form action="controllers/modificar_senha.php" method="POST">
+        <p>Nova senha:</p>
+        <input class="caixasenha" type="password" name="senha" placeholder="Digite a nova senha" minlength="8" />
+        <input type="hidden" name="chave" value="<?= $_GET['chave'] ?>" />
+        <button class="botaoconfirma" type="submit" >Recuperar senha</button>
       </form>
-      </div>
-      <div class="linklogin">
-      <p class="pjatemconta">Se lembrou?<a class="linksdownbotao" href="login.php"> Retorne para tela de login.</a></p>
-      </div>
       </div>
     </div>
   </body>

@@ -11,7 +11,7 @@
     <div class="container">
       <div class="titulo bg1">
         <a href="index.php"> <img   src="images/logo.png" /></a>
-      <a class="limpartitulo" href="index.php">Click Vagas Caruaru</a>
+      <a class="limpartitulo" href="index.php">Clique Vagas Caruaru</a>
       </div>
       <div class="conteudo">
         <div class="tema">
@@ -22,15 +22,16 @@
         <div class="formulario">
           <form action="controllers/login.php" method="POST">
               <p class="nameemail">E-mail:</p>
-              <input name="email" class="caixaemail" type="email" placeholder="Digite o email da empresa" />
+              <input name="email" class="caixaemail" type="email" placeholder="Digite o e-mail da empresa" />
               <p class="namesenha">Senha:</p>
-              <input name="senha" class="caixasenha" type="password" placeholder="Digite a senha da empresa" />
+              <input name="senha" class="caixasenha" type="password" placeholder="Digite a senha da empresa" minlength="8" />
+              <p class="textodownbotao">A senha deve ter no mínimo 8 caracteres.</p>
               <button class="botaoconfirma" type="submit">Entrar</button>
           </form>
         </div>
 
         <div>
-          <p class="textodownbotao">Esqueceu sua senha?<br /><a class="linksdownbotao" href="#">Clique aqui para recuperar.</a></p>
+          <p class="textodownbotao">Esqueceu sua senha?<br /><a class="linksdownbotao" href="recuperar.php">Clique aqui para recuperar.</a></p>
           <p class="pjatemconta">Não possui conta?<br /><a class="linksdownbotao" href="empresa.html"> Clique aqui para se cadastrar.</a></p>
         </div>
 

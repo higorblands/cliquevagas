@@ -4,7 +4,14 @@ if (isset($_POST['busca']) && $_POST['busca'] != "") {
   $busca = true;
 }
 require("model/pesquisar_anuncio.php");
+
+session_start();
+$sessao = false;
+if(isset($_SESSION['usuario']) && $_SESSION['usuario'] != "" ){  
+  $sessao = true;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -19,12 +26,14 @@ require("model/pesquisar_anuncio.php");
   <body class="bg2">
     <div class="container">
       <div class="titulo bg1">
-        <a class="limpartitulo" href="index.php"> <img src="images/logo.png" /> Click Vagas Caruaru</a>
+        <a class="limpartitulo" href="index.php"> <img src="images/logo.png" /> Clique Vagas Caruaru</a>
       </div>
       <div class="conteudo">
-        <div class="menu" <?= ($busca) ? 'style="display:none"' : "" ?> >
+      <a class="botao bg3" <?= ($sessao) ? 'style="display:block"' : 'style="display:none"'  ?> href="perfil.php">Entrar no perfil da empresa</a>
+        <div class="menu" <?= ($busca || $sessao) ? 'style="display:none"' : "" ?> >
           <a class="botao bg3" href="login.php">Entrar como empresa</a>
           <a class="botao bg4" href="empresa.html">Cadastrar empresa</a>
+
         </div>
         <div class="pesquisa">
           <p class="mensagem">Encontre uma oportunidade de emprego.</p>
@@ -40,20 +49,22 @@ require("model/pesquisar_anuncio.php");
           <p class="mensagem">Vagas <?= $vagas ?></p>
 <?php while ($row = pg_fetch_assoc($resultado)) { ?>
           <div class="container card">
+          <div class="precisaseclasse">
+          <h3><?= strtoupper($row['precisase']) ?></h3>  
+          </div>
             <div class="empresaedata">
               <div class="nomeempresa">
-                <h3><?= $row['nome'] ?></h3>
+                <h4><?= $row['nome'] ?></h4>
               </div> 
               <div class="datavencimento"> 
 <?php
 $date = date_create($row['data_vencimento']);
 $date = date_format($date, 'd-m-Y');
 ?>            
+            <p><?= $row['descricao'] ?></p>
                 <p>Vencimento <?= $date ?></p>
               </div>
             </div>
-            <h4><?= $row['precisase'] ?></h4>           
-            <p><?= $row['descricao'] ?></p>
             <p><strong>Contato:</strong></p>    
             <p><?= $row['email'] ?></p>
             <p><?= $row['site'] ?></p>

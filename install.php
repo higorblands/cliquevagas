@@ -12,19 +12,14 @@ $sql .= "codigo SERIAL NOT NULL,";
 $sql .= "nome VARCHAR(250),";
 $sql .= "email VARCHAR(100),";
 $sql .= "senha VARCHAR(150),";
+$sql .= "chave VARCHAR(255),";
 $sql .= "PRIMARY KEY(codigo)";
 $sql .= ");";
 /* PASSANDO O PARAMETRO SQL PARA FUNÇÃO BANCO */
 banco($sql);
 echo "<p>Tabela Empresa criada com sucesso !</p>";
-/* POPULANDO TABELA */
-$sql = "INSERT INTO empresa (nome, email, senha) ";
-$sql .= "VALUES ('SENAC Caruaru', 'caruaru@senac.com', '1');";
-$sql .= "INSERT INTO empresa (nome, email, senha) ";
-$sql .= "VALUES ('SENAC Recife', 'recife@senac.com', '2');";
-/* PASSANDO O PARAMETRO SQL PARA FUNÇÃO BANCO E POPULANDO A TABELA */
-banco($sql);
-echo "<p>Tabela Empresa populada com sucesso ! </p>";
+
+
 /* DELETAR TABELA CASO EXISTIR anuncios */
 banco("DROP TABLE IF EXISTS anuncios");
 /* PRINTAR SE A TABELA FOI APAGADA */
@@ -46,17 +41,8 @@ $sql .=");";
 /* PASSANDO O PARAMETRO SQL PARA FUNÇÃO BANCO */
 banco($sql);
 echo "<p>Tabela Anuncios criada com sucesso !</p>";
-/* POPULANDO TABELA */
-$sql ="INSERT INTO anuncios (codigo_empresa, precisase, descricao, telefone, email, endereco, site, data_insercao, data_vencimento) ";
-$sql .="VALUES (1, 'Barbeiro', 'Precisa-se de barbeiro experiente.', '8198772364', 'barbershop@barber.com', 'Rua campo novo 199', 'www.barber.com', '2020-10-23', '2020-12-25');";
-$sql .="INSERT INTO anuncios (codigo_empresa, precisase, descricao, telefone, email, site, endereco, data_insercao, data_vencimento) ";
-$sql .="VALUES (2, 'Mecanico', 'Precisa-se de Mecanico Maneta.', '87987654575', 'seucraudio@hotmail.com', 'Rua valentino rafael 55', 'www.seucraudio.com', '1500-09-24', '2020-12-25');";
-$sql .="INSERT INTO anuncios (codigo_empresa, precisase, descricao, telefone, email, site, endereco, data_insercao, data_vencimento) ";
-$sql .="VALUES (2, 'Auxiliar de limpeza', 'Experiência de 3 anos.', '87987654575', 'seucraudio@hotmail.com', 'Rua valentino rafael 55', 'www.seucradio.com', '1500-09-24', '2020-12-25');";
-$sql .="INSERT INTO anuncios (codigo_empresa, precisase, descricao, telefone, email, site, endereco, data_insercao, data_vencimento) ";
-$sql .="VALUES (2, 'Faxineiro', 'Experiência de 3 anos.', '87987654575', 'seucraudio@hotmail.com', 'Rua valentino rafael 55', 'www.seucradio.com', '1500-09-24', '2020-09-26');";
-banco($sql);
-echo "<p>Tabela Anuncios populada com sucesso ! </p>";
+
+
 /* DELETAR TABELA CASO EXISTIR favbusca*/
 banco ("DROP TABLE IF EXISTS favbusca");
 /* PRINTAR SE A TABELA FOI APAGADA  */
@@ -68,12 +54,6 @@ $sql .=");";
 /* PASSANDO O PARAMETRO SQL PARA FUNÇÃO BANCO */
 banco($sql);
 echo "<p>Tabela Busca Favorita(favbusca) criada com sucesso ! </p>";
-/* POPULANDO TABELA */
-$sql ="INSERT INTO favbusca (email, buscaFavorita) ";
-$sql .="VALUES ('fabinhomotorista@gmail.com', 'Vaga para motorista');";
-$sql .="INSERT INTO favbusca (email, buscaFavorita) ";
-$sql .="VALUES ('higor@gmail.com', 'Vaga para Analista de T.I');";
-banco($sql);
-echo "<p>Tabela Busca Favorita(favbusca) populada com sucesso ! </p>";
+
 
 ?>
